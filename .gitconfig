@@ -1,0 +1,33 @@
+# .gitconfig
+
+[user]
+  name = sgsh
+  email = s.sugano@sgsh.com
+
+[includeIf "gitdir:~/Projects/"]
+    path = ~/dotfiles/.local/.gitconfig
+
+[core]
+	editor = emacs -nw -Q
+	excludesfile = ~/.gitignore_global
+
+[alias]
+	graph = log --decorate --graph --name-status --oneline
+	co = checkout
+	cm = commit
+	st = status
+	br = branch -av
+	ft = fetch --prune
+	rt = rev-parse --show-toplevel
+	pl = pull
+	ps = push
+	df = diff
+
+[color]
+	ui = true
+
+[pull]
+	ff = only
+
+[credential]
+    helper = osxkeychain

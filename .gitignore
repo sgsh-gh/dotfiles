@@ -1,0 +1,8 @@
+
+.local/*
+!.gitkeep
+
+### White list
+.emacs.d
+!.emacs.d/*.el
+###

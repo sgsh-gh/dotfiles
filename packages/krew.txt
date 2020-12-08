@@ -1,0 +1,14 @@
+ctx
+ns
+graph
+grep
+kubesec-scan
+np-viewer
+open-svc
+pod-logs
+pod-shell
+prune-unused
+reap
+rm-standalone-pods
+score
+tail
