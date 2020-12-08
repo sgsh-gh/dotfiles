@@ -15,7 +15,7 @@ dotmklink() {
   fi
 }
 
-list='.zshrc .gitconfig .gitignore_global .emacs.d .vimrc .Brewfile .crontab .iterm2_shell_integration.zsh'
+list='.zshrc .gitconfig .gitignore_global .emacs.d .vimrc .Brewfile .crontab .iterm2_shell_integration.zsh .oh-my-zsh'
 for v in $list; do
   dotmklink "$v"
 done
@@ -29,19 +29,20 @@ done
 ./krew.sh
 ###
 
-### Iterm2 config #TODO: Copy file and symlink
+### Iterm2 config
 Iterm2Config="$dir/.iterm2_shell_integration.zsh"
 echo "Copying to $Iterm2Config"
 curl -L 'https://iterm2.com/shell_integration/zsh' \
   -o "$Iterm2Config"
 ###
 
-### Oh-my-zsh #TODO: Make this Submodule?
-if [ ! -e "$ZSH" ]; then
-  echo "Installing ohmyzsh"
-  sh -c \
-    "$(curl -fsSL https://raw.githubusercontent.com/ohmyzsh/ohmyzsh/master/tools/install.sh) --keep-zshrc"
-fi
+### Oh-my-zsh
+### I change to use git-submodule. If any problem I'll roll back these line.
+#if [ ! -e "$ZSH" ]; then
+#  echo "Installing ohmyzsh"
+#  sh -c \
+#    "$(curl -fsSL https://raw.githubusercontent.com/ohmyzsh/ohmyzsh/master/tools/install.sh) --keep-zshrc"
+#fi
 ###
 
 ### Arcanist
