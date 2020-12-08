@@ -1,16 +1,23 @@
 #! /bin/sh
 
 cd "$(dirname "$0")" || exit
+dir="$(git rev-parse --show-toplevel)"
 
 ### Make symlink
-dir="$(git rev-parse --show-toplevel)"
-list='.zshrc .gitconfig .gitignore_global .emacs.d .vimrc .Brewfile .crontab'
-for v in $list; do
-  dest="$HOME/$v"
-  if [ ! -e "$dest" ]; then
+dotmklink() {
+  source="$HOME/$1"
+  dest="$dir/$1"
+  if [ ! -e "$source" ]; then
     echo "Making symlink to $dest..."
-    ln -s "$dir/$v" "$dest"
+    ln -s "$dest" "$source"
+  else
+    echo "$source is existing."
   fi
+}
+
+list='.zshrc .gitconfig .gitignore_global .emacs.d .vimrc .Brewfile .crontab .iterm2_shell_integration.zsh'
+for v in $list; do
+  dotmklink "$v"
 done
 ###
 
@@ -23,14 +30,10 @@ done
 ###
 
 ### Iterm2 config #TODO: Copy file and symlink
-Iterm2Config="$HOME/.iterm2_shell_integration.zsh"
-if [ ! -e "$Iterm2Config" ]; then
-  echo "Copying to $Iterm2Config"
-  curl -L 'https://iterm2.com/shell_integration/zsh' \
-    -o "$Iterm2Config"
-else
-  echo "Check update for $Iterm2Config manually"
-fi
+Iterm2Config="$dir/.iterm2_shell_integration.zsh"
+echo "Copying to $Iterm2Config"
+curl -L 'https://iterm2.com/shell_integration/zsh' \
+  -o "$Iterm2Config"
 ###
 
 ### Oh-my-zsh #TODO: Make this Submodule?
