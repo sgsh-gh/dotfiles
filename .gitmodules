@@ -2,10 +2,10 @@
 	path = .oh-my-zsh
 	url = https://github.com/ohmyzsh/ohmyzsh.git
 [submodule "arcanist"]
-	path = arcanist
+	path = .phablicity/arcanist
 	url = https://github.com/phacility/arcanist.git
 	branch = stable
 [submodule "libphutil"]
-	path = libphutil
+	path = .phablicity/libphutil
 	url = https://github.com/phacility/libphutil.git
 	branch = stable
