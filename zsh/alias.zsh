@@ -1,5 +1,3 @@
-# Global alias definition
-
 export LSCOLORS=gxfxcxdxbxegedabagacad
 case ${OSTYPE} in
     darwin*)  colorflag='-G' ;;
@@ -34,3 +32,11 @@ alias -g CM='$(kubectl get cm  | _fzfk8salias | awk "{print \$1}")'
 alias -g SEC='$(kubectl get secret  | _fzfk8salias | awk "{print \$1}")'
 alias -g NP='$(kubectl get networkpolicies  | _fzfk8salias | awk "{print \$1}")'
 ###
+
+### zoom
+function zm() {
+  if [ -n "$1" ] && [ -n "$2" ]; then
+    open "zoommtg://zoom.us/join?confno=$1&pwd=$2"
+  fi
+}
+
