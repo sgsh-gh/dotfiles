@@ -2,6 +2,10 @@
  ```
  ☻ ☺  ⌃ ⎋␛ ⌘ ⌥ ⌫ ⇧ ⏎⌤ ⇪ ⚠ ⌫ ⌨ ♨ ¿ ¡
  ```
+## Automatic Configuration
+```shell
+sh -c "$(curl -fsSL https://raw.githubusercontent.com/sgsh-gh/dotfiles/main/init.sh)"
+```
 ## Manual Configuration
 ### System Preference
   - ⌨ > Modifier key
@@ -37,3 +41,4 @@
 ## References 
 - [Mathias’s dotfiles](https://github.com/mathiasbynens/dotfiles)
 - [\\\[._.\]/ - Hi, I'm the MacOS bot](https://github.com/atomantic/dotfiles)
+- [kisqragi's dotfiles](https://github.com/kisqragi/dotfiles)

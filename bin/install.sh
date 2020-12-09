@@ -3,23 +3,24 @@
 cd "$(dirname "$0")" || exit
 dir="$(git rev-parse --show-toplevel)"
 
-### Make symlink
-dotmklink() {
-  source="$HOME/$1"
-  dest="$dir/$1"
-  if [ ! -e "$source" ]; then
-    echo "Making symlink to $dest..."
-    ln -s "$dest" "$source"
-  else
-    echo "$source is existing."
-  fi
-}
-
-list='.zshrc .gitconfig .gitignore_global .emacs.d .vimrc .Brewfile .crontab .iterm2_shell_integration.zsh .oh-my-zsh'
-for v in $list; do
-  dotmklink "$v"
-done
-###
+#### Make symlink
+### NOTE: moved to init.sh
+#dotmklink() {
+#  source="$HOME/$1"
+#  dest="$dir/$1"
+#  if [ ! -e "$source" ]; then
+#    echo "Making symlink to $dest..."
+#    ln -s "$dest" "$source"
+#  else
+#    echo "$source is existing."
+#  fi
+#}
+#
+#list='.zshrc .gitconfig .gitignore_global .emacs.d .vimrc .Brewfile .crontab .iterm2_shell_integration.zsh .oh-my-zsh'
+#for v in $list; do
+#  dotmklink "$v"
+#done
+####
 
 ### install packages
 ./brew.sh
@@ -36,14 +37,14 @@ curl -L 'https://iterm2.com/shell_integration/zsh' \
   -o "$Iterm2Config"
 ###
 
-### Oh-my-zsh
+#### Oh-my-zsh
 ### I change to use git-submodule. If any problem I'll roll back these line.
 #if [ ! -e "$ZSH" ]; then
 #  echo "Installing ohmyzsh"
 #  sh -c \
 #    "$(curl -fsSL https://raw.githubusercontent.com/ohmyzsh/ohmyzsh/master/tools/install.sh) --keep-zshrc"
 #fi
-###
+####
 
 ### Arcanist
 # NOTE: Do not use sub module, arc has own way to upgrade.
