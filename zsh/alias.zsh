@@ -31,6 +31,23 @@ alias -g SVC='$(kubectl get svc  | _fzfk8salias | awk "{print \$1}")'
 alias -g CM='$(kubectl get cm  | _fzfk8salias | awk "{print \$1}")'
 alias -g SEC='$(kubectl get secret  | _fzfk8salias | awk "{print \$1}")'
 alias -g NP='$(kubectl get networkpolicies  | _fzfk8salias | awk "{print \$1}")'
+alias kctx='kubectl ctx'
+function kctl
+  case "$1" in
+    'used_node' )
+      kubectl get po -ojson | jq -r '.items[].spec.nodeName' | sort | uniq ;;
+    'used_cm' )
+      echo "Undefined" ;;
+    'detached_cm' )
+      echo "Undefined" ;;
+    'used_sec' )
+      echo "Undefined" ;;
+    'detached_sec' )
+      echo "Undefined" ;;
+    'detached_nwp' )
+      echo "Undefined" ;;
+    * )
+      kubectl "$@"
 ###
 
 ### zoom
