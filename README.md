@@ -1,20 +1,38 @@
 # sgsh's dotfiles
  ```
- ☻  ⌃ ⌘ ⌥ ⌫ ⇧ ⏎ ⇪
+ ☻ ☺  ⌃ ⎋␛ ⌘ ⌥ ⌫ ⇧ ⏎⌤ ⇪ ⚠ ⌫ ⌨ ♨ ¿ ¡
  ```
 ## Manual Configuration
 ### System Preference
- - Caps -> Ctrl
+  - ⌨ > Modifier key
+    - ⇪ : ⌃
+    - ⌃ : ⎋␛
+   
+### Iterm2
+  - (⌘,) > Keys >
+    - (Key bindings) >
+      - (⌥ →) : ⎋␛ f
+      - (⌥ ←) : ⎋␛ b
+      - ⚠ Delete conflicting keybind in profile
+      - (Touch Bar migration)
+    - (Navigation Shortcuts) >
+      - Window: None 
+      - Tab: ⌘
+      - Pane: ⌥
+  - (⌘,) > Profiles >
+    - Session > Configure Status Bar
+    - Advanced > Triggers
+  - (⌥ ⌘ F)
 
-### Itemr2
- - (⌘,) -> (Key Binding) -> (Touch Bar migration)
- - (Navigation Shortcuts) 
-    - Window: None
-    - Tab: ⌘
-    - Pane: ⌥
- - Trigger & Password Manager
-
+   
 ### IntelliJ
+  - Other > (Usage view group) > Directory: remove (^ D)
+  - (Main Menu) > 
+    - Run > Dung : remove (^ D)
+    - Edit > delete : add (^ D)
+  -  Editor > Cut line backward: (^ Q)
+
+ 
 
 ## References 
 - [Mathias’s dotfiles](https://github.com/mathiasbynens/dotfiles)
