@@ -30,7 +30,7 @@
   - (Main Menu) > 
     - Run > Dung : remove (^ D)
     - Edit > delete : add (^ D)
-  -  Editor > Cut line backward: (^ Q)
+  -  Editor > Cut line backward: add (^ Q)
 
  
 
