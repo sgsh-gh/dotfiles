@@ -32,7 +32,7 @@ alias -g CM='$(kubectl get cm  | _fzfk8salias | awk "{print \$1}")'
 alias -g SEC='$(kubectl get secret  | _fzfk8salias | awk "{print \$1}")'
 alias -g NP='$(kubectl get networkpolicies  | _fzfk8salias | awk "{print \$1}")'
 alias kctx='kubectl ctx'
-function kctl
+function kctl() {
   case "$1" in
     'used_node' )
       kubectl get po -ojson | jq -r '.items[].spec.nodeName' | sort | uniq ;;
@@ -48,6 +48,8 @@ function kctl
       echo "Undefined" ;;
     * )
       kubectl "$@"
+  esac
+}
 ###
 
 ### zoom
@@ -56,4 +58,3 @@ function zm() {
     open "zoommtg://zoom.us/join?confno=$1&pwd=$2"
   fi
 }
-
