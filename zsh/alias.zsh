@@ -50,6 +50,11 @@ function kctl() {
       kubectl "$@"
   esac
 }
+#TODO: Use open-svc plungin
+function ksvc(){
+  # ksvc ns service:port
+  open "http://localhost:8001/api/v1/namespaces/$1/services/$2/proxy/"
+}
 ###
 
 ### zoom
