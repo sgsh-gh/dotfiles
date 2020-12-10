@@ -22,6 +22,8 @@
 	pl = pull
 	ps = push
 	df = diff
+	sync-main = fetch origin master:master
+; 	sync = (sync | rebase master)
 
 [color]
 	ui = true
