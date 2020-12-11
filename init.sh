@@ -36,7 +36,7 @@ for f in .??*; do
     [[ "$f" == ".DS_Store" ]] && continue
     [[ "$f" == ".idea" ]] && continue
     [[ "$f" == ".local" ]] && continue
-    [[ "$f" == ".phablicity" ]] && continue #NOTE: under investigation of git sub-module
+    [[ "$f" == ".phacility" ]] && continue #NOTE: under investigation of git sub-module
     dest="$DOT_DIR/$f"
     echo "Making symlink to $dest..."
     ln -s "$dest" "$HOME/$f" #TODO: consider -fh options
