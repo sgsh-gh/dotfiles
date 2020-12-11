@@ -47,6 +47,7 @@ function kctl() {
     'detached_nwp' )
       echo "Undefined" ;;
     'decode_sec' )
+      shift
       kubectl get secret "$1" -ojson | jq -r '.data[]' | base64 -D ;;
     * )
       kubectl "$@"
