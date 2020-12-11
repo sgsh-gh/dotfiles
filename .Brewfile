@@ -1,6 +1,7 @@
 tap "homebrew/bundle"
 tap "homebrew/cask"
 tap "homebrew/core"
+tap "homebrew/cask-versions"
 
 
 brew "adr-tools"
@@ -43,7 +44,7 @@ brew "zlib"
 brew "zsh-completions"
 
 
-cask "adoptopenjdk8"
+cask "adoptopenjdk8" || true
 cask "boostnote"
 cask "box-sync"
 cask "chef-workstation"
@@ -52,7 +53,7 @@ cask "docker"
 cask "emacs"
 cask "firefox"
 cask "google-chrome"
-cask "intellij-idea"
+cask "intellij-idea19" #TODO: checkout own branch
 cask "intellij-idea-ce"
 cask "iterm2"
 cask "java"

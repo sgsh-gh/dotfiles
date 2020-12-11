@@ -24,8 +24,12 @@ sh -c "$(curl -fsSL https://raw.githubusercontent.com/sgsh-gh/dotfiles/main/init
       - Tab: ⌘
       - Pane: ⌥
   - (⌘,) > Profiles >
+    - General > Comannd : Login Shell 
     - Session > Configure Status Bar
     - Advanced > Triggers
+      - (P|p)assword for .*:
+      - .*'s (P|p)assword:
+      - (P|p)assword:
   - (⌥ ⌘ F)
 
    
