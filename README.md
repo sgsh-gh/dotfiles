@@ -36,7 +36,7 @@ sh -c "$(curl -fsSL https://raw.githubusercontent.com/sgsh-gh/dotfiles/main/init
 ### IntelliJ
   - Other > (Usage view group) > Directory: remove (^ D)
   - (Main Menu) > 
-    - Run > Dung : remove (^ D)
+    - Run > Debug : remove (^ D)
     - Edit > delete : add (^ D)
   -  Editor > Cut line backward: add (^ Q)
 
