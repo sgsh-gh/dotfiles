@@ -1,6 +1,6 @@
 #!/bin/bash
 
-DOT_DIR="~/dotfiles"
+DOT_DIR="$HOME/dotfiles"
 
 has() {
     type "$1" > /dev/null 2>&1
@@ -23,22 +23,22 @@ if [ ! -d ${DOT_DIR} ]; then
         echo "curl or wget or git required"
         exit 1
     fi
-
-    cd ${DOT_DIR}
-    while read -d $'\0' f; do
-        [[ "$f" != ".*" ]] && continue
-        [[ "$f" == ".git" ]] && continue
-        [[ "$f" == ".gitignore" ]] && continue
-        [[ "$f" == ".gitmodules" ]] && continue
-        [[ "$f" == ".DS_Store" ]] && continue
-        [[ "$f" == ".idea" ]] && continue
-        [[ "$f" == ".local" ]] && continue
-
-        ln -s "$DOT_DIR/$f" "$HOME/$f" #TODO: consider -fh options
-        echo "Installed $f"
-    done < <(find "${DOT_DIR}" -mindepth 1 -maxdepth 1 -print0)
-
 else
     echo "dotfiles already exists"
-    exit 1
 fi
+
+
+cd ${DOT_DIR}
+for f in .??*; do
+    [[ "$f" == ".git" ]] && continue
+    [[ "$f" == ".gitignore" ]] && continue
+    [[ "$f" == ".gitmodules" ]] && continue
+    [[ "$f" == ".DS_Store" ]] && continue
+    [[ "$f" == ".idea" ]] && continue
+    [[ "$f" == ".local" ]] && continue
+    [[ "$f" == ".phablicity" ]] && continue #NOTE: under investigation of git sub-module
+    dest="$DOT_DIR/$f"
+    echo "Making symlink to $dest..."
+    ln -s "$dest" "$HOME/$f" #TODO: consider -fh options
+#    echo "Installed $f"
+done
