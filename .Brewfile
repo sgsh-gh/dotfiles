@@ -44,7 +44,7 @@ brew "zlib"
 brew "zsh-completions"
 
 
-cask "adoptopenjdk8" || true
+cask "adoptopenjdk8" unless system "/usr/libexec/java_home --failfast -v 1.8"
 cask "boostnote"
 cask "box-sync"
 cask "chef-workstation"
@@ -54,10 +54,10 @@ cask "emacs"
 cask "firefox"
 cask "google-chrome"
 cask "intellij-idea19" #TODO: checkout own branch
-cask "intellij-idea-ce"
+cask "intellij-idea-ce19"
 cask "iterm2"
 cask "java"
-cask "java8" # For preventing clean-up
+cask "java8" unless system "/usr/libexec/java_home --failfast -v 1.8"
 cask "microsoft-auto-update"
 cask "microsoft-office" #TODO: mas
 cask "microsoft-teams"
