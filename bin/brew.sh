@@ -8,4 +8,5 @@ which brew >/dev/null 2>&1 || /bin/bash -c "$(curl -fsSL https://raw.githubuserc
 which brew >/dev/null 2>&1 && brew update
 brew upgrade
 
-brew bundle --global
+HOMEBREW_BUNDLE_CASK_SKIP="java8" \
+  brew bundle --global
