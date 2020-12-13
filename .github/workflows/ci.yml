@@ -24,6 +24,7 @@ jobs:
     steps:
       # Checks-out your repository under $GITHUB_WORKSPACE, so your job can access it
       - uses: actions/checkout@v2
-      - uses: ludeeus/action-shellcheck@master
-
-    
+      - name: sh-checker
+        uses: luizm/action-sh-checker@v0.1.9
+        with:
+          sh_checker_exclude: "iterm2_shell_integration.zsh .zsh"

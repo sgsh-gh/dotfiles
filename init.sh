@@ -6,9 +6,9 @@ has() {
     type "$1" > /dev/null 2>&1
 }
 
-if [ ! -d ${DOT_DIR} ]; then
+if [ ! -d "${DOT_DIR}" ]; then
     if has "git"; then
-        git clone https://github.com/sgsh-gh/dotfiles.git ${DOT_DIR} --recursive
+        git clone https://github.com/sgsh-gh/dotfiles.git "${DOT_DIR}" --recursive
     elif has "curl" || has "wget"; then
         TARBALL="https://github.com/sgsh-gh/dotfiles/archive/main.tar.gz"
         if has "curl"; then
@@ -28,7 +28,7 @@ else
 fi
 
 
-cd ${DOT_DIR}
+cd "${DOT_DIR}" || exit
 for f in .??*; do
     [[ "$f" == ".git" ]] && continue
     [[ "$f" == ".gitignore" ]] && continue
