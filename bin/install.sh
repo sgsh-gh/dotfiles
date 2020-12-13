@@ -34,7 +34,7 @@ dir="$(git rev-parse --show-toplevel)"
 Iterm2Config="$dir/.iterm2_shell_integration.zsh"
 echo "Copying to $Iterm2Config"
 curl -L 'https://iterm2.com/shell_integration/zsh' \
-  -o "$Iterm2Config"
+	-o "$Iterm2Config"
 ###
 
 #### Oh-my-zsh
@@ -50,13 +50,13 @@ curl -L 'https://iterm2.com/shell_integration/zsh' \
 # NOTE: Do not use sub module, arc has own way to upgrade.
 PHAB="$HOME/.phacility" # TODO: use .zsh variable
 if [ ! -e "$PHAB" ]; then
-  echo "Installing Phacility stack"
-  mkdir "$PHAB"
-  git clone https://github.com/phacility/libphutil.git "$PHAB/libphutil" -b stable
-  git clone https://github.com/phacility/arcanist.git "$PHAB/arcanist" -b stable
+	echo "Installing Phacility stack"
+	mkdir "$PHAB"
+	git clone https://github.com/phacility/libphutil.git "$PHAB/libphutil" -b stable
+	git clone https://github.com/phacility/arcanist.git "$PHAB/arcanist" -b stable
 else
-  echo "Upgrading arcanist"
-  arc upgrade
+	echo "Upgrading arcanist"
+	arc upgrade
 fi
 ###
 

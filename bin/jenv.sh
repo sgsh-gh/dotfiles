@@ -7,6 +7,6 @@ cd "$(dirname "$0")" || exit
 
 l='1.8 11'
 for v in $l; do
-  echo "Adding Java$v..."
-  jenv add "$(/usr/libexec/java_home -v "$v")"
+	echo "Adding Java$v..."
+	jenv add "$(/usr/libexec/java_home -v "$v")"
 done
