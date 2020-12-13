@@ -1,5 +1,5 @@
 export ZSH="$HOME/.oh-my-zsh"
-ZSH_THEME="skaro"
+export ZSH_THEME="skaro"
 
 source $ZSH/oh-my-zsh.sh
 
