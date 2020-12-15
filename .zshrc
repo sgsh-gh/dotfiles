@@ -20,6 +20,10 @@ setopt auto_cd
 setopt auto_pushd
 setopt pushd_ignore_dups
 
+## cdr
+autoload -Uz add-zsh-hock
+autoload -Uz chpwd_recent_dirs cdr add-zsh-hook
+
 ### Command history
 export LANG=ja_JP.UTF-8
 export HISTFILE="$HOME/.zsh_history"

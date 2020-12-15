@@ -18,6 +18,23 @@ alias mkdir='mkdir -p'
 
 alias em='emacs .'
 
+alias lines='wc -l'
+alias words='wc -w'
+alias chars='wc -c'
+
+alias -s gz='tar -xzvf'
+alias -s html='open'
+
+function mkduch(){
+  if [ -n "$1" ]; then
+    local d="$(dirname "$1")"
+    local f="$(basename "$1")"
+    mkdir -p "$d" && touch "$1"
+  else
+    echo "Missing argument"
+  fi
+
+}
 
 ### k8s
 alias _fzfk8salias="fzf --height 25 --header-lines=1 --reverse --multi --cycle"
@@ -97,3 +114,21 @@ function brew_rollback() {
 #  arc diff master --allow-untracked -m 'Patched current master' -update $d
 #}
 ###
+
+function peco-history-selection() {
+    BUFFER=`history -n 1 | tail -r  | awk '!a[$0]++' | peco`
+    CURSOR=$#BUFFER
+    zle reset-prompt
+}
+zle -N peco-history-selection
+bindkey '^R' peco-history-selection
+
+function peco-cdr () {
+    local selected_dir="$(cdr -l | awk '{ print $2 }' | sort -n | peco --query "$LBUFFER")"
+    if [ -n "$selected_dir" ]; then
+        BUFFER="cd ${selected_dir}"
+        zle accept-line
+    fi
+}
+zle -N peco-cdr
+bindkey '^x' peco-cdr
