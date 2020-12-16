@@ -39,6 +39,13 @@ function mkduch(){
 export FZF_DEFAULT_OPTS='--height 40% --border --cycle --layout=reverse'
 ###
 
+### git
+function brf(){
+  git branch -vv --sort=committerdate | fzf --tac +m | awk '{print $1}'
+}
+alias -g BR='$(brf)'
+###
+
 ### k8s
 function kubels(){
   local prmp=$(kubectl get "$1" | head -n1)
@@ -118,6 +125,10 @@ function brew_rollback() {
 #
 #  arc diff master --allow-untracked -m 'Patched current master' -update $d
 #}
+function revf(){
+  arc list | fzf --ansi --no-sort | sed 's/^.*\(D[0-9]*\):.*$/\1/g'
+}
+alias -g REV='$(revf)'
 ###
 
 function peco-history-selection() {
