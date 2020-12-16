@@ -35,19 +35,24 @@ function mkduch(){
   fi
 
 }
+### fzf
+export FZF_DEFAULT_OPTS='--height 40% --border --cycle --multi --layout=reverse'
+###
 
 ### k8s
-alias _fzfk8salias="fzf --height 25 --header-lines=1 --reverse --multi --cycle"
-alias -g P='$(kubectl get pods | _fzfk8salias | awk "{print \$1}")'
-alias -g RS='$(kubectl get rs   | _fzfk8salias | awk "{print \$1}")'
-alias -g DEP='$(kubectl get deploy  | _fzfk8salias | awk "{print \$1}")'
-alias -g J='$(kubectl get job  | _fzfk8salias | awk "{print \$1}")'
-alias -g CJ='$(kubectl get cj  | _fzfk8salias | awk "{print \$1}")'
-alias -g DEP='$(kubectl get deploy  | _fzfk8salias | awk "{print \$1}")'
-alias -g SVC='$(kubectl get svc  | _fzfk8salias | awk "{print \$1}")'
-alias -g CM='$(kubectl get cm  | _fzfk8salias | awk "{print \$1}")'
-alias -g SEC='$(kubectl get secret  | _fzfk8salias | awk "{print \$1}")'
-alias -g NP='$(kubectl get networkpolicies  | _fzfk8salias | awk "{print \$1}")'
+function kubels(){
+  local prmp=$(kubectl get "$1" | head -n1)
+  kubectl get "$1" | tail -n +2 | fzf --reverse "--prompt=$prmp" | awk "{print \$1}"
+}
+alias -g P='$(kubels po)'
+alias -g RS='$(kubels rs)'
+alias -g DEP='$(kubels deploy)'
+alias -g J='$(kubels job)'
+alias -g CJ='$(kubels cj)'
+alias -g SVC='$(kubels svc)'
+alias -g CM='$(kubels  cm)'
+alias -g SEC='$(kubels secret)'
+alias -g NP='$(kubels networkpolicies)'
 alias kctx='kubectl ctx'
 function kctl() {
   case "$1" in
@@ -116,7 +121,7 @@ function brew_rollback() {
 ###
 
 function peco-history-selection() {
-    BUFFER=`history -n 1 | tail -r  | awk '!a[$0]++' | peco`
+    BUFFER=$(history -n 1 | tail -r | awk '!a[$0]++' | fzf)
     CURSOR=$#BUFFER
     zle reset-prompt
 }
@@ -124,7 +129,7 @@ zle -N peco-history-selection
 bindkey '^R' peco-history-selection
 
 function peco-cdr () {
-    local selected_dir="$(cdr -l | awk '{ print $2 }' | sort -n | peco --query "$LBUFFER")"
+    local selected_dir=$(cdr -l | awk '{ print $2 }' | sort -n | fzf --query "$LBUFFER")
     if [ -n "$selected_dir" ]; then
         BUFFER="cd ${selected_dir}"
         zle accept-line
