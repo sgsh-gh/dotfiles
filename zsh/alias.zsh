@@ -36,13 +36,13 @@ function mkduch(){
 
 }
 ### fzf
-export FZF_DEFAULT_OPTS='--height 40% --border --cycle --multi --layout=reverse'
+export FZF_DEFAULT_OPTS='--height 40% --border --cycle --layout=reverse'
 ###
 
 ### k8s
 function kubels(){
   local prmp=$(kubectl get "$1" | head -n1)
-  kubectl get "$1" | tail -n +2 | fzf --reverse "--prompt=$prmp" | awk "{print \$1}" | sed  "s/^/$1\//g"
+  kubectl get "$1" | tail -n +2 | fzf "--prompt=$prmp" | awk "{print \$1}" | sed  "s/^/$1\//g"
 }
 alias -g P='$(kubels po)'
 alias -g RS='$(kubels rs)'
@@ -121,7 +121,7 @@ function brew_rollback() {
 ###
 
 function peco-history-selection() {
-    BUFFER=$(history -n 1 | tail -r | awk '!a[$0]++' | fzf)
+    BUFFER=$(history -n 1 | awk '!a[$0]++' | fzf --tac --no-sort)
     CURSOR=$#BUFFER
     zle reset-prompt
 }
@@ -129,7 +129,7 @@ zle -N peco-history-selection
 bindkey '^R' peco-history-selection
 
 function peco-cdr () {
-    local selected_dir=$(cdr -l | awk '{ print $2 }' | sort -n | fzf --query "$LBUFFER")
+    local selected_dir=$(cdr -l | awk '{ print $2 }' | fzf --query "$LBUFFER")
     if [ -n "$selected_dir" ]; then
         BUFFER="cd ${selected_dir}"
         zle accept-line
