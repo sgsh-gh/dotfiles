@@ -42,7 +42,7 @@ export FZF_DEFAULT_OPTS='--height 40% --border --cycle --multi --layout=reverse'
 ### k8s
 function kubels(){
   local prmp=$(kubectl get "$1" | head -n1)
-  kubectl get "$1" | tail -n +2 | fzf --reverse "--prompt=$prmp" | awk "{print \$1}"
+  kubectl get "$1" | tail -n +2 | fzf --reverse "--prompt=$prmp" | awk "{print \$1}" | sed  "s/^/$1\//g"
 }
 alias -g P='$(kubels po)'
 alias -g RS='$(kubels rs)'
