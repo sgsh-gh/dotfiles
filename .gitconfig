@@ -2,7 +2,7 @@
 
 [user]
   name = sgsh
-  email = s.sugano@sgsh.com
+  email = 22369041+sgsh-gh@users.noreply.github.com
 
 [includeIf "gitdir:~/Projects/"]
     path = ~/dotfiles/.local/.gitconfig
