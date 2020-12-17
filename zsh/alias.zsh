@@ -40,26 +40,26 @@ export FZF_DEFAULT_OPTS='--height 40% --border --cycle --layout=reverse'
 ###
 
 ### git
-function brf(){
-  git branch -vv --sort=committerdate | fzf --tac +m | awk '{print $1}'
+function fbr(){
+  git branch -vv --sort=committerdate | fzf --tac +m | sed 's/\*//' | awk '{print $1}'
 }
-alias -g BR='$(brf)'
+alias -g BR='fbr'
 ###
 
 ### k8s
 function kubels(){
   local prmp=$(kubectl get "$1" | head -n1)
-  kubectl get "$1" | tail -n +2 | fzf "--prompt=$prmp" | awk "{print \$1}" | sed  "s/^/$1\//g"
+  kubectl get "$1" | tail -n +2 | fzf "--prompt=$prmp" | awk '{print $1}' | sed  "s/^/$1\//g"
 }
-alias -g P='$(kubels po)'
-alias -g RS='$(kubels rs)'
-alias -g DEP='$(kubels deploy)'
-alias -g J='$(kubels job)'
-alias -g CJ='$(kubels cj)'
-alias -g SVC='$(kubels svc)'
-alias -g CM='$(kubels  cm)'
-alias -g SEC='$(kubels secret)'
-alias -g NP='$(kubels networkpolicies)'
+alias -g P='kubels po'
+alias -g RS='kubels rs'
+alias -g DEP='kubels deploy'
+alias -g J='kubels job'
+alias -g CJ='kubels cj'
+alias -g SVC='kubels svc'
+alias -g CM='kubels  cm'
+alias -g SEC='kubels secret'
+alias -g NP='kubels networkpolicies'
 alias kctx='kubectl ctx'
 function kctl() {
   case "$1" in
@@ -125,26 +125,26 @@ function brew_rollback() {
 #
 #  arc diff master --allow-untracked -m 'Patched current master' -update $d
 #}
-function revf(){
+function frev(){
   arc list | fzf --ansi --no-sort | sed 's/^.*\(D[0-9]*\):.*$/\1/g'
 }
-alias -g REV='$(revf)'
+alias -g REV='frev'
 ###
 
-function peco-history-selection() {
+function fzf-history-selection() {
     BUFFER=$(history -n 1 | awk '!a[$0]++' | fzf --tac --no-sort)
     CURSOR=$#BUFFER
     zle reset-prompt
 }
-zle -N peco-history-selection
-bindkey '^R' peco-history-selection
+zle -N fzf-history-selection
+bindkey '^R' fzf-history-selection
 
-function peco-cdr () {
+function fzf-cdr () {
     local selected_dir=$(cdr -l | awk '{ print $2 }' | fzf --query "$LBUFFER")
     if [ -n "$selected_dir" ]; then
         BUFFER="cd ${selected_dir}"
         zle accept-line
     fi
 }
-zle -N peco-cdr
-bindkey '^x' peco-cdr
+zle -N fzf-cdr
+bindkey '^x' fzf-cdr
