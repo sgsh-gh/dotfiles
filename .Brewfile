@@ -10,6 +10,7 @@ brew "bzip2"
 brew "curl"
 brew "emacs", link: false
 brew "fzf"
+brew "ghq"
 brew "git"
 brew "gnupg"
 brew "go"
