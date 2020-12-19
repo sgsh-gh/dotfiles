@@ -150,9 +150,11 @@ zle -N fzf-cdr
 bindkey '^x' fzf-cdr
 
 function fzf-ghq(){
-  local selected_dir=$(ghq list |fzf --preview "ghq list -p -e {} | head -n1 | xargs -I{} cat '{}/README.md'")
+  local selected_dir=$(ghq list |\
+    fzf --preview "ghq list -p -e {} | head -n1 | xargs -I{} bat --color=always --style=header,grid --line-range :100 '{}/README.md'" |\
+    xargs ghq list -p -e )
   if [ -n "$selected_dir" ]; then
-    BUFFER="ghq get --look ${selected_dir}"
+    BUFFER="cd ${selected_dir}"
     zle accept-line
   fi
 }

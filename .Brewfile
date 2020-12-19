@@ -5,6 +5,7 @@ tap "homebrew/cask-versions"
 
 
 brew "adr-tools"
+brew "bat"
 brew "bazel"
 brew "bzip2"
 brew "curl"
