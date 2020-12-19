@@ -148,3 +148,15 @@ function fzf-cdr () {
 }
 zle -N fzf-cdr
 bindkey '^x' fzf-cdr
+
+function fzf-ghq(){
+  local selected_dir=$(ghq list |fzf --preview "ghq list -p -e {} | head -n1 | xargs -I{} cat '{}/README.md'")
+  if [ -n "$selected_dir" ]; then
+    BUFFER="ghq get --look ${selected_dir}"
+    zle accept-line
+  fi
+}
+zle -N fzf-ghq
+bindkey '^g' fzf-ghq
+ln -sf "$(brew --repository)/Library/Taps/homebrew" ~/ghq/github.com/homebrew
+

@@ -33,3 +33,9 @@
 
 [credential]
     helper = osxkeychain
+
+[ghq "https://github.com/"]
+    root = ~/ghq/
+
+[ghq "https://github.com/Homebrew"]
+    root = /usr/local/Homebrew/Library/Taps/
