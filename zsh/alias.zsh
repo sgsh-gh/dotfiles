@@ -160,5 +160,4 @@ function fzf-ghq(){
 }
 zle -N fzf-ghq
 bindkey '^g' fzf-ghq
-ln -sf "$(brew --repository)/Library/Taps/homebrew" ~/ghq/github.com/homebrew
 
