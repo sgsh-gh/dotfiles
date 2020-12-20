@@ -5,4 +5,8 @@
 ### White list
 .emacs.d
 !.emacs.d/*.el
+
+.stack
+!.stack/config.yaml
+!.stack/global-project/stack.yaml
 ###

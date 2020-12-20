@@ -35,6 +35,7 @@ for f in .??*; do
 	[[ "$f" == ".DS_Store" ]] && continue
 	[[ "$f" == ".idea" ]] && continue
 	[[ "$f" == ".local" ]] && continue
+  [[ "$f" == ".github" ]] && continue
 	[[ "$f" == ".phacility" ]] && continue #NOTE: under investigation of git sub-module
 	src="$HOME/$f"
 	dest="$DOT_DIR/$f"

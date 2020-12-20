@@ -23,7 +23,7 @@ eval "$(rbenv init -)"
 ###
 
 ### Haskell
-export PATH=$PATH:~/.local/bin
+export PATH="$HOME/.stack/bin:$PATH"
 ###
 
 ### Phacility
