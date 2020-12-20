@@ -42,3 +42,5 @@ for f in .??*; do
 	echo "Making symlink to $dest..."
 	ln -sfh "$dest" "$src"
 done
+
+mkdir "$HOME/dotfiles_local" || true

@@ -7,7 +7,7 @@ source "$HOME/dotfiles/zsh/pkg-manager.zsh"
 source "$HOME/dotfiles/zsh/ohmyzsh.zsh"
 source "$HOME/dotfiles/zsh/prompt.zsh"
 source "$HOME/dotfiles/zsh/alias.zsh"
-source "$HOME/dotfiles/.local/.zshrc" >/dev/null 2>&1 || echo "You can put personal config in $HOME/dotfiles/.local/.zshrc"
+source "$HOME/dotfiles_local/.zshrc" >/dev/null 2>&1 || echo "You can put personal config in $HOME/dotfiles_local/.zshrc"
 source "$HOME/.iterm2_shell_integration.zsh"
 ###
 

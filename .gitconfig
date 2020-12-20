@@ -5,7 +5,7 @@
   email = 22369041+sgsh-gh@users.noreply.github.com
 
 [includeIf "gitdir:~/Projects/"]
-    path = ~/dotfiles/.local/.gitconfig
+    path = ~/dotfiles_local/.gitconfig
 
 [core]
 	editor = emacs -nw -Q
