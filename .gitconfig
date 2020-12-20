@@ -39,3 +39,6 @@
 
 [ghq "https://github.com/Homebrew"]
     root = /usr/local/Homebrew/Library/Taps/
+
+[ghq]
+    root = ~/Projects/
