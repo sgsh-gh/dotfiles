@@ -44,3 +44,5 @@ for f in .??*; do
 done
 
 mkdir "$HOME/dotfiles_local" || true
+mkdir -p "$HOME/ghq/github.com/sgsh-gh" || true
+ln -fsh  "$HOME/dotfiles" "$HOME/ghq/github.com/sgsh-gh/dotfiles"
