@@ -4,7 +4,7 @@
   name = sgsh
   email = 22369041+sgsh-gh@users.noreply.github.com
 
-[includeIf "gitdir:~/Projects/"]
+[include]
     path = ~/dotfiles_local/.gitconfig
 
 [core]
@@ -40,5 +40,3 @@
 [ghq "https://github.com/Homebrew"]
     root = /usr/local/Homebrew/Library/Taps/
 
-[ghq]
-    root = ~/Projects/
