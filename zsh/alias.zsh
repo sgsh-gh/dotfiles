@@ -43,7 +43,7 @@ export FZF_DEFAULT_OPTS='--height 40% --border --cycle --layout=reverse'
 function fbr(){
   git branch -vv --sort=committerdate | fzf --tac +m | sed 's/\*//' | awk '{print $1}'
 }
-alias -g BR='fbr'
+alias -g BR='$(fbr)'
 ###
 
 ### k8s
@@ -51,15 +51,15 @@ function kubels(){
   local prmp=$(kubectl get "$1" | head -n1)
   kubectl get "$1" | tail -n +2 | fzf "--prompt=$prmp" | awk '{print $1}' | sed  "s/^/$1\//g"
 }
-alias -g P='kubels po'
-alias -g RS='kubels rs'
-alias -g DEP='kubels deploy'
-alias -g J='kubels job'
-alias -g CJ='kubels cj'
-alias -g SVC='kubels svc'
-alias -g CM='kubels  cm'
-alias -g SEC='kubels secret'
-alias -g NP='kubels networkpolicies'
+alias -g P='$(kubels po)'
+alias -g RS='$(kubels rs)'
+alias -g DEP='$(kubels deploy)'
+alias -g J='$(kubels job)'
+alias -g CJ='$(kubels cj)'
+alias -g SVC='$(kubels svc)'
+alias -g CM='$(kubels  cm)'
+alias -g SEC='$(kubels secret)'
+alias -g NP='$(kubels networkpolicies)'
 alias kctx='kubectl ctx'
 function kctl() {
   case "$1" in
