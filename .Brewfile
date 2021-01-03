@@ -2,7 +2,7 @@ tap "homebrew/bundle"
 tap "homebrew/cask"
 tap "homebrew/core"
 tap "homebrew/cask-versions"
-
+tap "homebrew/cask-drivers"
 
 brew "adr-tools"
 brew "bat"
@@ -66,6 +66,7 @@ cask "microsoft-auto-update"
 cask "microsoft-office" #TODO: mas
 cask "microsoft-teams"
 cask "slack" #TODO: mas
+cask "sony-ps4-remote-play"
 cask "vagrant"
 cask "viber"
 cask "virtualbox"
