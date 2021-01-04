@@ -65,6 +65,7 @@ cask "jetbrains-toolbox"
 cask "microsoft-auto-update"
 cask "microsoft-office" #TODO: mas
 cask "microsoft-teams"
+cask "minecraft"
 cask "slack" #TODO: mas
 cask "sony-ps4-remote-play"
 cask "vagrant"
@@ -72,15 +73,14 @@ cask "viber"
 cask "virtualbox"
 cask "zoom"
 
-# Manual
-# cask "minecraft"
-# mas "LINE", id: 539883307
-# mas "Twitter", id: 1482454543
-# mas "final-cut-pro", id: 424389933
-# mas "kindle", id: 405399194
-# mas "logic-pro", id: 634148309
-# mas "microsoft-365", id: 1450038993
-# mas "tweetdeck-by-twitter", id: 485812721
+
+mas "LINE", id: 539883307
+mas "Twitter", id: 1482454543
+mas "final-cut-pro", id: 424389933
+mas "kindle", id: 405399194
+mas "logic-pro", id: 634148309
+mas "microsoft-365", id: 1450038993
+mas "tweetdeck-by-twitter", id: 485812721
 
 
 ## Archive
