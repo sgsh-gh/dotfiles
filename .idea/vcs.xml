@@ -3,8 +3,7 @@
   <component name="VcsDirectoryMappings">
     <mapping directory="" vcs="Git" />
     <mapping directory="$PROJECT_DIR$/.oh-my-zsh" vcs="Git" />
-    <mapping directory="$PROJECT_DIR$/.oh-my-zsh/.oh-my-zsh" vcs="Git" />
-    <mapping directory="$PROJECT_DIR$/.phablicity/arcanist" vcs="Git" />
-    <mapping directory="$PROJECT_DIR$/.phablicity/libphutil" vcs="Git" />
+    <mapping directory="$PROJECT_DIR$/.phacility/arcanist" vcs="Git" />
+    <mapping directory="$PROJECT_DIR$/.phacility/libphutil" vcs="Git" />
   </component>
 </project>

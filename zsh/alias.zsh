@@ -33,8 +33,12 @@ function mkduch(){
   else
     echo "Missing argument"
   fi
-
 }
+
+function jqd() {
+  jq "del(.$(printf '[]?%.0s' {1..${1:-2}}))"
+}
+
 ### fzf
 export FZF_DEFAULT_OPTS='--height 40% --border --cycle --layout=reverse'
 ###
